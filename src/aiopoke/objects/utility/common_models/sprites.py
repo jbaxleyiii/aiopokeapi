@@ -359,6 +359,16 @@ class Other:
     home_front_female: Optional["Sprite"]
     home_front_shiny: Optional["Sprite"]
     home_front_shiny_female: Optional["Sprite"]
+    official_artwork_front_default: Optional["Sprite"]
+    official_artwork_front_shiny: Optional["Sprite"]
+    showdown_back_default: Optional["Sprite"]
+    showdown_back_female: Optional["Sprite"]
+    showdown_back_shiny: Optional["Sprite"]
+    showdown_back_shiny_female: Optional["Sprite"]
+    showdown_front_default: Optional["Sprite"]
+    showdown_front_female: Optional["Sprite"]
+    showdown_front_shiny: Optional["Sprite"]
+    showdown_front_shiny_female: Optional["Sprite"]
 
     def __init__(self, data) -> None:
         self.dream_world_front_default = Sprite(data["dream_world"]["front_default"])
@@ -373,3 +383,21 @@ class Other:
         self.official_artwork_front_shiny = Sprite(
             data["official-artwork"]["front_shiny"]
         )
+        if data.get("showdown") is not None:
+            self.showdown_back_default = Sprite(data["showdown"]["back_default"])
+            self.showdown_back_female = Sprite(data["showdown"]["back_female"])
+            self.showdown_back_shiny = Sprite(data["showdown"]["back_shiny"])
+            self.showdown_back_shiny_female = Sprite(data["showdown"]["back_shiny_female"])
+            self.showdown_front_default = Sprite(data["showdown"]["front_default"])
+            self.showdown_front_female = Sprite(data["showdown"]["front_female"])
+            self.showdown_front_shiny = Sprite(data["showdown"]["front_shiny"])
+            self.showdown_front_shiny_female = Sprite(data["showdown"]["front_shiny_female"])
+        else:
+            self.showdown_back_default = None
+            self.showdown_back_female = None
+            self.showdown_back_shiny = None
+            self.showdown_back_shiny_female = None
+            self.showdown_front_default = None
+            self.showdown_front_female = None
+            self.showdown_front_shiny = None
+            self.showdown_front_shiny_female = None
