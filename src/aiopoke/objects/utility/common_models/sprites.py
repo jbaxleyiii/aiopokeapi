@@ -343,21 +343,31 @@ class GenerationVIISprites:
     ultra_sun_ultra_moon_front_shiny_female: Optional["Sprite"]
 
     def __init__(self, data) -> None:
-        self.icons_front_default = Sprite(data["icons"]["front_default"])
-        self.icons_front_female = Sprite(data["icons"]["front_female"])
+        if "icons" in data:
+            self.icons_front_default = Sprite(data["icons"]["front_default"])
+            self.icons_front_female = Sprite(data["icons"]["front_female"])
+        else:
+            self.icons_front_default = None
+            self.icons_front_female = None
 
-        self.ultra_sun_ultra_moon_front_default = Sprite(
-            data["ultra-sun-ultra-moon"]["front_default"]
-        )
-        self.ultra_sun_ultra_moon_front_female = Sprite(
-            data["ultra-sun-ultra-moon"]["front_female"]
-        )
-        self.ultra_sun_ultra_moon_front_shiny = Sprite(
-            data["ultra-sun-ultra-moon"]["front_default"]
-        )
-        self.ultra_sun_ultra_moon_front_shiny_female = Sprite(
-            data["ultra-sun-ultra-moon"]["front_shiny_female"]
-        )
+        if "ultra-sun-ultra-moon" in data:
+            self.ultra_sun_ultra_moon_front_default = Sprite(
+                data["ultra-sun-ultra-moon"]["front_default"]
+            )
+            self.ultra_sun_ultra_moon_front_female = Sprite(
+                data["ultra-sun-ultra-moon"]["front_female"]
+            )
+            self.ultra_sun_ultra_moon_front_shiny = Sprite(
+                data["ultra-sun-ultra-moon"]["front_default"]
+            )
+            self.ultra_sun_ultra_moon_front_shiny_female = Sprite(
+                data["ultra-sun-ultra-moon"]["front_shiny_female"]
+            )
+        else:
+            self.ultra_sun_ultra_moon_front_default = None
+            self.ultra_sun_ultra_moon_front_female = None
+            self.ultra_sun_ultra_moon_front_shiny = None
+            self.ultra_sun_ultra_moon_front_shiny_female = None
 
 
 class GenerationVIIISprites:
@@ -365,8 +375,12 @@ class GenerationVIIISprites:
     icons_front_female: Optional["Sprite"]
 
     def __init__(self, data) -> None:
-        self.icons_front_default = Sprite(data["icons"]["front_default"])
-        self.icons_front_female = Sprite(data["icons"]["front_female"])
+        if "icons" in data:
+            self.icons_front_default = Sprite(data["icons"]["front_default"])
+            self.icons_front_female = Sprite(data["icons"]["front_female"])
+        else:
+            self.icons_front_default = None
+            self.icons_front_female = None
 
 
 class Other:
